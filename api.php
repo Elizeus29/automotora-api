@@ -34,10 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length');
-header('Access-Control-Allow-Origin: *');
-	
+		
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
