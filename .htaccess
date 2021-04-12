@@ -4,6 +4,10 @@
     Header set Access-Control-Allow-Headers: "Origin, Content-Type, X-Auth-Token"
 </IfModule>
 
+<Location "/">
+  AllowMethods GET POST OPTIONS
+</Location>
+
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
