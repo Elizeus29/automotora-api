@@ -1,8 +1,7 @@
 <IfModule mod_headers.c>
-    Access-Control-Allow-Origin: "*"
-    Access-Control-Allow-Methods: POST, GET, OPTIONS
-    Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
-    Access-Control-Max-Age: 86400e
+    Header add Access-Control-Allow-Origin "*"
+    Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+    Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 </IfModule>
 
 
