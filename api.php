@@ -10,11 +10,11 @@ $dbConn =  connect($db);
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
-    if (isset($_GET['id']))
+    if (isset($_GET['patente']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM vehiculo where id=:id");
-      $sql->bindValue(':id', $_GET['id']);
+      $sql = $dbConn->prepare("SELECT * FROM vehiculo where patente=:patente");
+      $sql->bindValue(':patente', $_GET['patente']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
       echo json_encode(  $sql->fetch(PDO::FETCH_ASSOC)  );
@@ -36,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
-          (title, status, content, user_id)
+          (patente, color, anio, precio, kilometraje, id_marca, id_modelo)
           VALUES
-          (:title, :status, :content, :user_id)";
+          (:patente, :color, :anio, :precio, :kilometraje, :id_marca, :id_modelo)";
     $statement = $dbConn->prepare($sql);
     bindAllValues($statement, $input);
     $statement->execute();
@@ -55,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 //Borrar
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 {
-	$id = $_GET['id'];
-  $statement = $dbConn->prepare("DELETE FROM vehiculo where id=:id");
-  $statement->bindValue(':id', $id);
+	$id = $_GET['patente'];
+  $statement = $dbConn->prepare("DELETE FROM vehiculo where patente=:patente");
+  $statement->bindValue(':patente', $id);
   $statement->execute();
 	header("HTTP/1.1 200 OK");
 	exit();
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 if ($_SERVER['REQUEST_METHOD'] == 'PUT')
 {
     $input = $_GET;
-    $postId = $input['id'];
+    $postId = $input['patente'];
     $fields = getParams($input);
 
     $sql = "
