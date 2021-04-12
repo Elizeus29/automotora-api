@@ -1,9 +1,8 @@
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods: "*"
-    Header set Access-Control-Allow-Headers: "*"
-    Header set Access-Control-Request-Method: "POST"
-    Header set Access-Control-Request-Headers: "X-PINGOTHER", "Content-Type"
+    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Methods: POST, GET, OPTIONS
+    Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+    Access-Control-Max-Age: 86400e"
 </IfModule>
 
 
