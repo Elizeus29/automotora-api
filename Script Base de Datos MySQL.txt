@@ -1,0 +1,43 @@
+create table marca(
+id_marca int(10) primary key,
+descripcion varchar(20)
+);
+
+create table modelo(
+id_modelo int(10) primary key,
+descripcion varchar(20)
+);
+
+create table vehiculo(
+patente varchar(7) primary key,
+color varchar(15) not null, 
+Anio int(4) not null,
+precio int(10) not null,  
+Kilometros int(10) not null,
+id_marca int(10) not null,
+id_modelo int(10) not null,
+
+FOREIGN KEY (id_marca) REFERENCES marca(id_marca),
+FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo)
+
+);
+
+insert into marca values (1, "suzuki");
+insert into marca values (2, "Fiat");
+insert into marca values (3, "Kia");
+insert into marca values (4, "Jac");
+
+
+insert into modelo values (1, "celerio");
+insert into modelo values (2, "alto");
+insert into modelo values (3, "Palio");
+insert into modelo values (4, "Morning");
+insert into modelo values (5, "Cerato");
+insert into modelo values (6, "s2");
+
+insert into vehiculo values ("JHGF-87", "rojo", 2010, 7990000, 10500, 1, 1 );
+insert into vehiculo values ("EDSW-70", "azul", 2015, 4990000, 5000, 1, 2 );
+insert into vehiculo values ("QWER-00", "plata", 2017, 3990000, 6200, 2, 3 );
+insert into vehiculo values ("YRRF-20", "Gris", 2020, 6990000, 7400, 3, 4 );
+insert into vehiculo values ("KAHS-40", "Cafe", 2021, 10990000, 14500, 3, 5 );
+insert into vehiculo values ("OWIR-92", "Blanco", 2019, 5990000, 30400, 4, 6 );

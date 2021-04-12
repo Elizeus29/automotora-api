@@ -8,9 +8,9 @@
 // ];
 $db = [
     'host' => 'remotemysql.com',
-    'username' => 'k72Qw6xxSQ',
-    'password' => 'wagI9YRlmA',
-    'db' => 'k72Qw6xxSQ' //Cambiar al nombre de tu base de datos
+    'username' => '0hb279bf6D',
+    'password' => 'MqqHtJMNho',
+    'db' => '0hb279bf6D' //Cambiar al nombre de tu base de datos
 ];
 
 ?>

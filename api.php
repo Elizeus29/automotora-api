@@ -6,14 +6,14 @@ include "utils.php";
 $dbConn =  connect($db);
 
 /*
-  listar todos los posts o solo uno
+  listar todos los vehiculo o solo uno
  */
 if ($_SERVER['REQUEST_METHOD'] == 'GET')
 {
     if (isset($_GET['id']))
     {
       //Mostrar un post
-      $sql = $dbConn->prepare("SELECT * FROM posts where id=:id");
+      $sql = $dbConn->prepare("SELECT * FROM vehiculo where id=:id");
       $sql->bindValue(':id', $_GET['id']);
       $sql->execute();
       header("HTTP/1.1 200 OK");
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 	  }
     else {
       //Mostrar lista de post
-      $sql = $dbConn->prepare("SELECT * FROM posts");
+      $sql = $dbConn->prepare("SELECT * FROM vehiculo");
       $sql->execute();
       $sql->setFetchMode(PDO::FETCH_ASSOC);
       header("HTTP/1.1 200 OK");
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $input = $_POST;
-    $sql = "INSERT INTO posts
+    $sql = "INSERT INTO vehiculo
           (title, status, content, user_id)
           VALUES
           (:title, :status, :content, :user_id)";
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE')
 {
 	$id = $_GET['id'];
-  $statement = $dbConn->prepare("DELETE FROM posts where id=:id");
+  $statement = $dbConn->prepare("DELETE FROM vehiculo where id=:id");
   $statement->bindValue(':id', $id);
   $statement->execute();
 	header("HTTP/1.1 200 OK");
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
     $fields = getParams($input);
 
     $sql = "
-          UPDATE posts
+          UPDATE vehiculo
           SET $fields
           WHERE id='$postId'
            ";
