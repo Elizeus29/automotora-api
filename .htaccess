@@ -2,6 +2,8 @@
     Header set Access-Control-Allow-Origin "*"
     Header set Access-Control-Allow-Methods: "*"
     Header set Access-Control-Allow-Headers: "*"
+    Header set Access-Control-Request-Method: "POST"
+    Header set Access-Control-Request-Headers: "X-PINGOTHER", "Content-Type"
 </IfModule>
 
 
