@@ -5,7 +5,7 @@
 </IfModule>
 
 <Location "/">
-  AllowMethods GET POST OPTIONS
+  AllowMethods "GET, POST,OPTIONS"
 </Location>
 
 <IfModule mod_rewrite.c>
