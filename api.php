@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
           VALUES
-          (:patente, :color, :anio, :precio, :kilometros, :id_marca, :id_modelo)";
+          (:patente, :color, :Anio, :precio, :Kilometros, :id_marca, :id_modelo)";
+    echo "".$sql;
     $statement = $dbConn->prepare($sql);
     bindAllValues($statement, $input);
     $statement->execute();
