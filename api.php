@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       $input['id'] = $postId;
       header("HTTP/1.1 200 OK");
       echo json_encode($input);
+      echo "insertado";
       exit();
 	 }
 }
