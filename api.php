@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $statement = $dbConn->prepare($sql);
     bindAllValues($statement, $input);
     $statement->execute();
+    echo "insertado".$statement;
     $postId = $dbConn->lastInsertId();
     if($postId)
     {
