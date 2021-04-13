@@ -1,5 +1,5 @@
 <ifmodule mod_headers.c>
-   Header set Access-Control-Allow-Origin "*"
+
    Header set Access-Control-Credentials: "true"
    Header set Access-Control-Allow-Methods: "*"
    Header set Access-Control-Max-Age: "10000"
