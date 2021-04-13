@@ -40,22 +40,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 if ($_POST['METHOD'] == 'POST')
 {      
     unset($_POST['METHOD']);
-    $input = $_POST;
+    $patente=$_POST['patente'];
+    $color=$_POST['color'];
+    $anio=$_POST['anio'];
+    $precio=$_POST['precio'];
+    $kilometros=$_POST['kilometros'];
+    $id_marca=$_POST['id_marca'];
+    $id_modelo=$_POST['id_modelo'];
+	
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
           VALUES
-          (:patente, :color, :anio, :precio, :kilometros, :id_marca, :id_modelo)";
+          ('$patente', '$color', '$anio', '$precio', '$kilometros', '$id_marca', '$id_modelo')";
     $statement = $dbConn->prepare($sql);
-    bindAllValues($statement, $input);
     $statement->execute();
-    $postId = $dbConn->lastInsertId();
-    if($postId)
-    {
-      $input['patente'] = $postId;
-      header("HTTP/1.1 200 OK");
-      echo json_encode($input);
+      echo json_encode($statement);
+	header("HTTP/1.1 200 OK");
       exit();
-	 }
+	 
 }
 
 //Borrar
