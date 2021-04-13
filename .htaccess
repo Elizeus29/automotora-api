@@ -1,8 +1,9 @@
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods: "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-    Header set Access-Control-Allow-Headers: "Origin, Content-Type, X-Auth-Token"
-</IfModule>
+<ifmodule mod_headers.c>
+   Header set Access-Control-Allow-Origin "*"
+   Header set Access-Control-Allow-Methods: "*"
+   Header set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+</ifmodule>
+
 
 <IfModule mod_rewrite.c>
 RewriteEngine on

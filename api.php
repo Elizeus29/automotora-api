@@ -1,9 +1,13 @@
 <?php
+
+
+
 include "config.php";
 include "utils.php";
 
 
 $dbConn =  connect($db);
+
 
 /*
   listar todos los vehiculo o solo uno
@@ -34,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+		
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
@@ -48,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       $input['patente'] = $postId;
       header("HTTP/1.1 200 OK");
       echo json_encode($input);
+      echo "insertado";
       exit();
 	 }
 }
