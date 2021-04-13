@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 		
     $input = $_POST;
+    echo "".$input;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
           VALUES
@@ -47,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $statement = $dbConn->prepare($sql);
     bindAllValues($statement, $input);
     $statement->execute();
-    echo "insertado".$statement;
     $postId = $dbConn->lastInsertId();
     if($postId)
     {
