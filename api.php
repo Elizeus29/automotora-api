@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 		
-    $input = $_POST;
+    $input = $_GET;
     echo "".$input;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT')
     $sql = "
           UPDATE vehiculo
           SET $fields
-          WHERE id='$postId'
+          WHERE patente='$postId'
            ";
 
     $statement = $dbConn->prepare($sql);
