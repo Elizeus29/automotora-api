@@ -1,6 +1,9 @@
 <?php
 
-
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method,Access-Control-Request-Headers, Authorization");
+header('Content-Type: application/json');
 
 include "config.php";
 include "utils.php";
@@ -38,11 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-      // Indica los métodos permitidos.
-    header('Access-Control-Allow-Methods: GET, POST, DELETE');
-    // Indica los encabezados permitidos.
-    header('Access-Control-Allow-Headers: Authorization');
-    http_response_code(204);
+      	header('Access-Control-Allow-Origin: *');
+	header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method,Access-Control-Request-Headers, Authorization");
+	header("HTTP/1.1 200 OK");
+	die();
 	
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
