@@ -38,7 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-		
+      // Indica los métodos permitidos.
+    header('Access-Control-Allow-Methods: GET, POST, DELETE');
+    // Indica los encabezados permitidos.
+    header('Access-Control-Allow-Headers: Authorization');
+    http_response_code(204);
+	
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
@@ -53,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
       $input['patente'] = $postId;
       header("HTTP/1.1 200 OK");
       echo json_encode($input);
-      echo "insertado";
       exit();
 	 }
 }
