@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
 // Crear un nuevo post
 if ($_POST['METHOD'] == 'POST')
 {      
-	
+    unset($_POST['METHOD']);
     $input = $_POST;
     $sql = "INSERT INTO vehiculo
           (patente, color, anio, precio, kilometros, id_marca, id_modelo)
